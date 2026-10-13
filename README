@@ -1,0 +1,21 @@
+# Symbol Viewer - Internship Challenge
+**By:** Vilina Prenko
+## How to Run
+1. Download all files
+2. Open `index.html` in any web browser
+3. Click "Connect to Server" to start
+## What I Learned
+- How to manipulate the DOM with JavaScript
+- How to show/hide elements dynamically
+- How to loop through data and display it
+- Basic CSS styling and layout
+## Challenges I Faced
+- Understanding how to pass data to the detail view. I solved it by
+adding a click listener to each row that calls showDetail(symbol).
+- Getting the CSS layout to look good
+## Bonus Feature
+- Symbol Counter
+## Technologies Used
+- HTML
+- CSS
+- JavaScript (vanilla)

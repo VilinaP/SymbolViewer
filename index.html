@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Symbol Viewer</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <h1>Symbol Monitor</h1>
+            <!-- Login Section -->
+            <div id="login-section">
+                <button type="button" id="connect-btn">Connect to Server</button>
+            </div>
+            <!-- Symbol List Section (hidden at start) -->
+            <div id="symbols-section" style="display: none;">
+                <button type="button" id="disconnect-btn">Disconnect</button>
+                <div id="symbols-list"></div>
+            </div>
+            <!-- Detail Section (hidden at start) -->
+            <div id="detail-section" style="display: none;">
+                <button type="button" id="back-btn">Back</button>
+                <div id="symbol-detail"></div>
+            </div>
+        </div>
+    </body>
+</html>
