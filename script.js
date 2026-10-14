@@ -50,7 +50,7 @@ const mockSymbols = [
     }
 ];
 
-// Get elements
+// Get elements from DOM
 const loginSection = document.getElementById('login-section');
 const symbolsSection = document.getElementById('symbols-section');
 const detailSection = document.getElementById('detail-section');
@@ -58,48 +58,59 @@ const connectBtn = document.getElementById('connect-btn');
 const disconnectBtn = document.getElementById('disconnect-btn');
 const backBtn = document.getElementById('back-btn');
 
-// Connect button click
+// Connect button clicked
 connectBtn.addEventListener('click', function () {
     // Hide login, show symbols
-    loginSection.style.display = 'none';
-    symbolsSection.style.display = 'block';
+    loginSection.classList.add('hidden');
+    symbolsSection.classList.remove('hidden');
     // Display symbols
     displaySymbols();
 });
 
-// Disconnect button click
+// Disconnect button clicked
 disconnectBtn.addEventListener('click', function () {
     // Show login, hide symbols
-    loginSection.style.display = 'block';
-    symbolsSection.style.display = 'none';
+    loginSection.classList.remove('hidden');
+    symbolsSection.classList.add('hidden');
 });
 
-// Back button click
+// Back button clicked
 backBtn.addEventListener('click', function () {
     // Hide detail, show symbols
-    detailSection.style.display = 'none';
-    symbolsSection.style.display = 'block';
+    detailSection.classList.add('hidden');
+    symbolsSection.classList.remove('hidden');
 });
 
 // Display symbols
 function displaySymbols() {
     const symbolsList = document.getElementById('symbols-list');
+    const cardTemplate = document.querySelector('#card-template')
     symbolsList.innerHTML = '';
     mockSymbols.forEach(function (symbol) {
-        const card = document.createElement('div');
-        card.className = 'symbol-card';
-        card.innerHTML = `<h3>${symbol.name} <span>[${symbol.type}]</span></h3><p>${symbol.description}</p>`;
-        card.onclick = function () {
-            showDetail(symbol);
-        };
+
+        // Clone the template and fill the card with data 
+        const card = cardTemplate.content.querySelector('.symbol-card').cloneNode(true)
+
+        card.querySelector('h2').textContent = symbol.name
+        card.querySelector('.symbol-type').textContent = symbol.type
+        card.querySelector('.symbol-description').textContent = symbol.description
+
+        card.addEventListener('click', () => showDetail(symbol));
+
         symbolsList.appendChild(card);
     });
 }
 
 // Show symbol detail
 function showDetail(symbol) {
-    symbolsSection.style.display = 'none';
-    detailSection.style.display = 'block';
-    const detailDiv = document.getElementById('symbol-detail');
-    detailDiv.innerHTML = `<h2>${symbol.name}</h2><p><strong>Type:</strong> ${symbol.type}</p><p><strong>Value:</strong> ${symbol.value}</p><p><strong>Description:</strong> ${symbol.description}</p>`;
+    symbolsSection.classList.add('hidden');
+    detailSection.classList.remove('hidden');
+
+    const detailContainer = document.querySelector("#symbol-detail")
+
+    // change the currect content of the div#symbol-detail 
+    detailContainer.querySelector('h2').textContent = symbol.name
+    detailContainer.querySelector('.symbol-type').textContent = symbol.type
+    detailContainer.querySelector('.symbol-value').textContent = symbol.value
+    detailContainer.querySelector('.symbol-description').textContent = symbol.description
 }

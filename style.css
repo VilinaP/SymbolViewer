@@ -1,54 +1,86 @@
-body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f5f5f5;
+/* -----------------CSS Reset-------------- */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#app {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+/* -------------Colors------------------- */
+
+:root{
+    --background-color: #E8ECF1; 
+    --card-color: #B5CFD8;
+    --accent-color: #7393A7;
+    --primary-color: #6C737E;
+}
+
+/* -------------General--------------- */
+
+
+body {
+    font-family: Halvetica, sans-serif;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--primary-color)
+}
+
+#symbols-list{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #0056b3;
-    color: white;
-    border: none;
+    background-color: transparent;
+    color: var(--primary-color);
+    font-weight: bold;
+    border: 3px solid var(--primary-color);
     border-radius: 4px;
 }
 
 button:hover {
-    background-color: #003f80;
+    background-color: var(--primary-color);
+    color: var(--background-color)
 }
 
--------------- Card Styles ---------------
+.hidden {
+    display: none;
+}
+
+/* -------------- Card Styles --------------- */
 
 .symbol-card {
-border: 1px solid #ddd;
-padding: 15px;
-margin: 10px 0;
-border-radius: 5px;
-cursor: pointer;
-transition: all 0.3s;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 20vw;
+    min-width: 200px;
 }
 
 .symbol-card:hover {
-background-color: #f0f0f0;
-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .symbol-card h3 {
-margin: 0 0 10px 0;
-color: #333;
+    margin: 0 0 10px 0;
+    color: #333;
 }
 
 .symbol-card span {
-color: #0056b3;
-font-size: 14px;
+    color: #0056b3;
+    font-size: 14px;
+}
+
+.symbol-card div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
