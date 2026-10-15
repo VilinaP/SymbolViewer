@@ -1,29 +1,32 @@
 # Symbol Viewer - Internship Challenge
 **By:** Vilina Prenko
+
 ## How to Run
 1. Download all files
 2. Open `index.html` in any web browser
 3. Click "Connect to Server" to start
+
 ## What I Learned
-- How to manipulate the DOM with JavaScript
-- How to show/hide elements dynamically using <template> tag
-- How to loop through data and display it
-- Basic CSS styling and layout
+- How to use the `<template>` tag: clone it with JavaScript, fill it with data, and add it to the page
+- How to loop through data, display it, and count it
+- Why `textContent` is safer than `innerHTML` when showing data
+
 ## Challenges I Faced
-- Understanding how to pass data to the detail view. I solved it by
-adding a click listener to each row that calls showDetail(symbol).
-- Getting the CSS layout to look good
+- **Duplicate cards after reconnecting.** I fixed it by clearing the list with `symbolsList.textContent = ''` before the loop.
+- **Showing the right symbol in the detail view.** I added an event listener to each card that passes that card's symbol to `showDetail`.
+
 ## Bonus Feature
-- Symbol Counter
+- **Symbol Counter:** shows "Showing X symbols" above the list. Calculated from the amount of card that are added onto the page
+
 ## Technologies Used
 - HTML
 - CSS
 - JavaScript (vanilla)
-- Color Hunt (to find a color pallete for application) 
-  link: https://colorhunt.co/
-## Main Changes to Done to Starter Code
-- Remove using innerHTML in script.js file to using template from HTML 
-  and dynamicly adding them into the page. 
-- Implemented symentic tags in the HTML file
-- Removed inline CSS styling from index.html file
-- Checked Accessibility with AxeDev Tool
+
+## Tools Used
+- axe DevTools (accessibility checking)
+
+## Main Changes to the Starter Code
+- Replaced `innerHTML` with `textContent` and cloned `<template>` elements instead of building HTML strings in JavaScript
+- Used semantic HTML tags
+- Removed inline styling from `index.html`

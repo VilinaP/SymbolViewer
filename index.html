@@ -10,24 +10,31 @@
 </head>
 
 <body>
-    <header>
-        <h1>Symbol Monitor</h1>
+    <header class="in-the-middle">
         <!-- Login Section -->
-        <div id="login-section">
+        <div id="login-section" class="login-section">
+            <h1>Symbol Monitor</h1>
             <button type="button" id="connect-btn">Connect to Server</button>
         </div>
     </header>
     <main>
         <!-- Symbol List Section (hidden at start) -->
         <div id="symbols-section" class="hidden">
-            <button type="button" id="disconnect-btn">Disconnect</button>
+            <div class="nav-bar">
+                <h1>Symbol Monitor</h1>
+                <button type="button" id="disconnect-btn">Disconnect</button>
+            </div>
+            <p class="symbols-count"></p>
             <div id="symbols-list"></div>
         </div>
 
         <!-- Detail Section (hidden at start) -->
         <div id="detail-section" class="hidden">
-            <button type="button" id="back-btn">Back</button>
-            <div id="symbol-detail">
+            <div class="nav-bar">
+                <h1>Symbol Monitor</h1>
+                <button type="button" id="back-btn">Back</button>
+            </div>
+            <div id="symbol-detail" class="detail-card">
                 <h2>Symbol Name</h2>
                 <p><strong>Type:</strong> <span class="symbol-type">Symbol Type</span></p>
                 <p><strong>Value:</strong> <span class="symbol-value">Symbol Value</span></p>

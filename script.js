@@ -72,6 +72,7 @@ disconnectBtn.addEventListener('click', function () {
     // Show login, hide symbols
     loginSection.classList.remove('hidden');
     symbolsSection.classList.add('hidden');
+
 });
 
 // Back button clicked
@@ -84,8 +85,11 @@ backBtn.addEventListener('click', function () {
 // Display symbols
 function displaySymbols() {
     const symbolsList = document.getElementById('symbols-list');
-    const cardTemplate = document.querySelector('#card-template')
-    symbolsList.innerHTML = '';
+    const cardTemplate = document.querySelector('#card-template');
+    const countSpace = document.querySelector('.symbols-count')
+    let countElements = 0;
+    //remove all previous symbols, before populating
+    symbolsList.textContent = '';
     mockSymbols.forEach(function (symbol) {
 
         // Clone the template and fill the card with data 
@@ -95,10 +99,15 @@ function displaySymbols() {
         card.querySelector('.symbol-type').textContent = symbol.type
         card.querySelector('.symbol-description').textContent = symbol.description
 
+        // When user clicks on the card the details of that symbol show 
         card.addEventListener('click', () => showDetail(symbol));
 
         symbolsList.appendChild(card);
+        //add 1 to the count every time it loops through a symbol
+        countElements ++;
     });
+    //add the final count number into HTML
+    countSpace.textContent = `Showing ${countElements} ${countElements === 1 ? 'symbol' : 'symbols'}`;
 }
 
 // Show symbol detail

@@ -10,35 +10,32 @@
 /* -------------Colors------------------- */
 
 :root{
-    --background-color: #E8ECF1; 
-    --card-color: #B5CFD8;
-    --accent-color: #7393A7;
-    --primary-color: #6C737E;
+    --background-color: #E3EBF2; 
+    --card-color: #d2dae0;
+    --card-color-hover: #c1d0da;
+    --accent-color: #526D82;
+    --primary-color: #27374D;
 }
 
 /* -------------General--------------- */
 
-
 body {
     font-family: Halvetica, sans-serif;
-    padding: 20px;
     background-color: var(--background-color);
     color: var(--primary-color)
 }
 
-#symbols-list{
-    display: flex;
-    flex-wrap: wrap;
+h1{
+    font-size: 30pt;
 }
 
 button {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     background-color: transparent;
     color: var(--primary-color);
-    font-weight: bold;
-    border: 3px solid var(--primary-color);
+    border: 1px solid var(--primary-color);
     border-radius: 4px;
 }
 
@@ -48,39 +45,125 @@ button:hover {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
-/* -------------- Card Styles --------------- */
+/* -------------- Card Styles and Cards Layout--------------- */
+#symbols-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 30vh;
+    margin: 0 25px 25px;
+}
 
 .symbol-card {
-    border: 1px solid #ddd;
+    background-color: var(--card-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 10px;
     padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s;
     width: 20vw;
-    min-width: 200px;
+    min-width: 300px;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .symbol-card:hover {
-    background-color: #f0f0f0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.symbol-card h3 {
-    margin: 0 0 10px 0;
-    color: #333;
-}
-
-.symbol-card span {
-    color: #0056b3;
-    font-size: 14px;
+    background-color: var(--card-color-hover);
 }
 
 .symbol-card div {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    align-items: center;
+}
+
+.symbol-type{
+    padding: 5px 7px 5px;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    color: var(--background-color);
+    font-size: 16px;
+}
+
+.symbol-description{
+    font-size: 18px;
+}
+
+.symbol-card div h2{
+    font-size: 25px;
+}
+/* ----styles for symbol counter---- */
+.symbols-count{
+    text-align: right;
+    margin: 20px 4.5% 10px;
+    font-weight: bold;
+    font-size: 15pt;
+}
+
+
+/* --------log in view-------- */
+.login-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    padding: 50px;
+    gap: 15px;
+}
+
+/* -----------navbar visible only for cards view and description view------- */
+
+.nav-bar{
+    font-size: 16pt;
+    background-color: var(--accent-color);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--background-color);
+}
+
+.nav-bar button{
+    border-color: var(--background-color);
+    color: var(--background-color);
+}
+
+/* ---------Symbol details---------- */
+
+.detail-card{ 
+    background-color: var(--card-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 30vw;
+    min-width: 400px;
+    max-width: 600px;
+    height: 30vh;
+    max-height: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px auto ;
+}
+
+.detail-card .symbol-type{
+    background-color: transparent;
+    color: var(--primary-color);
+    font-size: 15pt;
+}
+
+.detail-card h2{
+    font-size: 25pt;
+    margin: 10px 0 20px;
+}
+.detail-card p{
+    font-size: 15pt;
 }
